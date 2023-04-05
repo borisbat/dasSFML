@@ -135,4 +135,16 @@ IF ((NOT DAS_SFML_INCLUDED) AND ((NOT ${DAS_SFML_DISABLED}) OR (NOT DEFINED DAS_
 		set(CMAKE_BUILD_RPATH "${DAS_SFML_DIR}/SFML/extlibs/libs-osx/Frameworks")
     ENDIF()
 
+    install(DIRECTORY ${PROJECT_SOURCE_DIR}/modules/dasSFML/dassfml
+        DESTINATION modules/dasSFML
+        FILES_MATCHING
+        PATTERN "*.das"
+    )
+    file(GLOB DAS_SFML_EXAMPLES
+        ${PROJECT_SOURCE_DIR}/modules/dasSFML/examples/*.das
+    )
+    install(FILES ${DAS_SFML_EXAMPLES}
+        DESTINATION examples/sfml
+    )
+
 ENDIF()
