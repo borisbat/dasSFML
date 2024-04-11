@@ -15,7 +15,8 @@ template <> struct cast_arg<const sf::String &> {
 };
 template <> struct cast_res<sf::String> {
     static __forceinline vec4f from ( const sf::String & str, Context * context ) {
-		auto text = context->stringHeap->allocateString(str);
+		auto text = context->stringHeap->allocateString(context,str);
+		if ( !text ) context->throw_error("out of string heap");
         return cast<char *>::from(text);
     }
 };
