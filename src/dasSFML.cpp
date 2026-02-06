@@ -31,6 +31,7 @@ bool Module_dasSFML::initDependencies() {
 	initMain();
 	return true;
 }
+REGISTER_MODULE_IN_NAMESPACE(Module_dasSFML, Module_dasSFML);
 }
 REGISTER_MODULE_IN_NAMESPACE(Module_dasSFML,das);
 
